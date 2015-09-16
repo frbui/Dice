@@ -1,23 +1,29 @@
+
 void setup()
 {
-	size(500,300);
+	size(600,280);
 	noLoop();
 }
 void draw()
 {
 	for(int u = 0; u <= 400; u+=50 )
 	{ 
-		for(int o = 0; o <= 200; o+=50 ){
+		for(int o = 0; o <= 200; o+=50 )
+		{
 		Die bill = new Die(10 + u,10 + o);
 		bill.show();
-	}
+
+		}
 		
 	}
-
+	text("roll" + roll , 500, 200 );
 }
+
+
 void mousePressed()
 {
 	redraw();
+	
 }
 class Die //models one single dice cube
 {
@@ -37,29 +43,31 @@ class Die //models one single dice cube
 		fill(225);
 		rect(myX, myY,50,50); //your code here
 		fill(0);
-		if (Math.random() <.166666 )
+		int roll = (int)(Math.random()*6) + 1  ;
+		
+		if (roll == 1 )
 		{
 			ellipse(myX + 25, myY + 25, 10,10);
 		}
-		else if (Math.random() <.333333)
+		else if (roll == 2)
 		{
 			ellipse(myX + 10, myY + 10, 10,10);
 			ellipse(myX + 40, myY + 40, 10,10);
 		}
-		else if (Math.random() <.5)
+		else if (roll == 3)
 		{
 			ellipse(myX + 10, myY + 10, 10,10);
 			ellipse(myX + 40, myY + 40, 10,10);
 			ellipse(myX + 25, myY + 25, 10,10);
 		}
-		else if (Math.random() <.666666)
+		else if (roll == 4)
 		{
 			ellipse(myX + 10, myY + 10, 10,10);
 			ellipse(myX + 40, myY + 10, 10,10);
 			ellipse(myX + 10, myY + 40, 10,10);
 			ellipse(myX + 40, myY + 40, 10,10);
 		}
-		else if (Math.random() <.833333)
+		else if (roll == 5)
 		{
 			ellipse(myX + 10, myY + 10, 10,10);
 			ellipse(myX + 40, myY + 10, 10,10);
@@ -67,7 +75,7 @@ class Die //models one single dice cube
 			ellipse(myX + 40, myY + 40, 10,10);
 			ellipse(myX + 25, myY + 25, 10,10);
 		}
-		else
+		else if (roll == 6)
 		{
 			ellipse(myX + 10, myY + 10, 10,10);
 			ellipse(myX + 40, myY + 10, 10,10);
@@ -76,9 +84,5 @@ class Die //models one single dice cube
 			ellipse(myX + 10, myY + 25, 10,10);
 			ellipse(myX + 40, myY + 25, 10,10);
 		}
-
-
-
-
 	}
 }
